@@ -159,7 +159,7 @@ iframe {
 .header .profile-content .social a:hover {
   background: #778492;
 }
-.header .profile-content .social a.x-twitter:hover {
+.header .profile-content .social a.xtwitter:hover {
   background: #000000;
 }
 .header .profile-content .social a.googleplus:hover {
@@ -588,7 +588,6 @@ ul.list-inline li{
     text-align: center;
   }
   .header .btn {
-    margin-top: 30px;
     float: none !important;
   }
   .project-image {

@@ -1,0 +1,36 @@
+name: Generar CV en PDF
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - cv.html
+      - assets/images/photo.png
+      - .github/workflows/cv-pdf.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Imprimir cv.html a PDF con Chrome
+        run: |
+          mkdir -p assets/cv
+          google-chrome --headless=new --no-sandbox --disable-gpu \
+            --no-pdf-header-footer --virtual-time-budget=10000 \
+            --print-to-pdf=assets/cv/CV_Oscar_Lopez_Ruiz.pdf \
+            "file://$GITHUB_WORKSPACE/cv.html"
+          ls -l assets/cv
+
+      - name: Guardar el PDF en el repositorio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/cv/CV_Oscar_Lopez_Ruiz.pdf
+          git diff --cached --quiet || git commit -m "Actualizar CV en PDF"
+          git push

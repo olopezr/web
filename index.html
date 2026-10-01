@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Óscar López Ruiz · Customer Success Engineering @ IBM</title>
   <meta name="description" content="Óscar López Ruiz — Customer Success Engineering en IBM. Especialista en integración, automatización y modernización de aplicaciones: Event Streams, MQ, API Connect, WebSphere Liberty y Red Hat OpenShift.">
-  <meta name="keywords" content="Óscar López Ruiz, IBM, Customer Success Engineering, Technical Sales, integración, automatización, Event Streams, Kafka, MQ, API Connect, Cloud Pak for Integration, WebSphere Liberty, OpenShift, Madrid">
   <meta name="robots" content="index,follow">
-  <meta name="theme-color" content="#0b1020">
   <meta property="og:title" content="Óscar López Ruiz · Customer Success Engineering @ IBM">
   <meta property="og:description" content="Integración, automatización y modernización de aplicaciones con IBM y Red Hat.">
   <meta property="og:image" content="https://olopezr.github.io/web/assets/images/photo.png">
@@ -15,492 +13,353 @@
   <link rel="icon" href="favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f6f7fb;
-      --bg-2: #ffffff;
-      --surface: rgba(255,255,255,.72);
-      --border: rgba(15,23,42,.08);
-      --text: #0f172a;
-      --muted: #5b6475;
-      --accent: #4f46e5;
-      --accent-2: #06b6d4;
-      --accent-3: #ec4899;
-      --grad: linear-gradient(120deg, var(--accent) 0%, var(--accent-2) 55%, var(--accent-3) 100%);
-      --shadow: 0 10px 30px -12px rgba(15,23,42,.18);
-      --radius: 18px;
-      color-scheme: light;
+      --bg: #fafaf9; --surface: #ffffff; --text: #18181b; --muted: #5f6470; --faint: #8b909a;
+      --line: #e6e6e3; --accent: #1d4ed8; --accent-soft: #eef2ff; color-scheme: light;
     }
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme="light"]) {
-        --bg: #0b1020; --bg-2: #111832; --surface: rgba(20,27,52,.66); --border: rgba(255,255,255,.08);
-        --text: #e8ecf8; --muted: #9aa4bf; --accent: #818cf8; --accent-2: #22d3ee; --accent-3: #f472b6;
-        --shadow: 0 10px 40px -12px rgba(0,0,0,.6); color-scheme: dark;
+        --bg: #0f1115; --surface: #161920; --text: #ecedef; --muted: #a3a8b3; --faint: #7a808c;
+        --line: #262a33; --accent: #6ea0ff; --accent-soft: #1a2236; color-scheme: dark;
       }
     }
     :root[data-theme="dark"] {
-      --bg: #0b1020; --bg-2: #111832; --surface: rgba(20,27,52,.66); --border: rgba(255,255,255,.08);
-      --text: #e8ecf8; --muted: #9aa4bf; --accent: #818cf8; --accent-2: #22d3ee; --accent-3: #f472b6;
-      --shadow: 0 10px 40px -12px rgba(0,0,0,.6); color-scheme: dark;
+      --bg: #0f1115; --surface: #161920; --text: #ecedef; --muted: #a3a8b3; --faint: #7a808c;
+      --line: #262a33; --accent: #6ea0ff; --accent-soft: #1a2236; color-scheme: dark;
     }
-
-    *, *::before, *::after { box-sizing: border-box; }
+    * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body {
-      margin: 0; font-family: Inter, system-ui, sans-serif; font-size: 16px; line-height: 1.6;
-      color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; overflow-x: hidden;
-    }
-    a { color: inherit; }
-    h1, h2, h3 { font-family: "Space Grotesk", Inter, system-ui, sans-serif; line-height: 1.15; margin: 0; }
-    img { max-width: 100%; display: block; }
-
-    /* i18n */
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.65 Inter, system-ui, -apple-system, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    h1, h2, h3, h4 { margin: 0; line-height: 1.25; }
+    p { margin: 0; }
+    svg { width: 18px; height: 18px; flex: none; }
     html[data-lang="es"] [lang="en"]:not(html), html[data-lang="en"] [lang="es"]:not(html) { display: none !important; }
 
-    /* Background blobs */
-    .bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
-    .blob { position: absolute; width: 46vmax; height: 46vmax; border-radius: 50%; filter: blur(80px); opacity: .35; animation: float 22s ease-in-out infinite alternate; }
-    .blob.b1 { background: var(--accent); top: -18vmax; left: -12vmax; }
-    .blob.b2 { background: var(--accent-2); top: 30vh; right: -20vmax; animation-delay: -7s; }
-    .blob.b3 { background: var(--accent-3); bottom: -25vmax; left: 20vw; opacity: .22; animation-delay: -14s; }
-    @keyframes float { to { transform: translate(6vmax, 4vmax) scale(1.12); } }
-    .grid-overlay { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse at top, #000 20%, transparent 70%); }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
 
-    /* Nav */
-    nav {
-      position: sticky; top: 0; z-index: 50; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-      background: color-mix(in srgb, var(--bg) 70%, transparent); border-bottom: 1px solid var(--border);
+    /* Top bar */
+    .top { display: flex; justify-content: flex-end; gap: 8px; padding: 20px 0 0; }
+    .tbtn { font: 500 13px Inter, system-ui, sans-serif; color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 8px; height: 34px; padding: 0 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+    .tbtn:hover { color: var(--text); border-color: var(--faint); }
+    .tbtn svg { width: 16px; height: 16px; }
+
+    /* Header */
+    header.hero { display: flex; gap: 28px; align-items: center; padding: 48px 0 40px; border-bottom: 1px solid var(--line); }
+    .hero img { width: 112px; height: 112px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); }
+    .hero h1 { font-size: clamp(30px, 5vw, 42px); font-weight: 700; letter-spacing: -.02em; }
+    .hero .role { font-size: 18px; color: var(--muted); margin-top: 4px; }
+    .hero .role strong { color: var(--text); font-weight: 600; }
+    .hero .meta { display: flex; flex-wrap: wrap; gap: 4px 18px; color: var(--faint); font-size: 14px; margin-top: 10px; }
+    .hero .meta span { display: inline-flex; align-items: center; gap: 6px; }
+    .hero .meta svg { width: 15px; height: 15px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 8px; font-weight: 600; font-size: 14px; border: 1px solid var(--line); color: var(--text); background: var(--surface); transition: border-color .15s, background .15s; }
+    .btn:hover { text-decoration: none; border-color: var(--faint); }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    :root[data-theme="dark"] .btn.primary { color: #0f1115; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn.primary { color: #0f1115; } }
+    .btn.primary:hover { filter: brightness(1.08); }
+    @media (max-width: 640px) {
+      header.hero { flex-direction: column; align-items: flex-start; gap: 18px; padding-top: 28px; }
+      .hero img { width: 88px; height: 88px; }
     }
-    .nav-inner { max-width: 1120px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; gap: 16px; }
-    .logo { font-family: "Space Grotesk"; font-weight: 700; font-size: 20px; text-decoration: none; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .nav-links { display: flex; gap: 4px; margin-left: auto; }
-    .nav-links a { text-decoration: none; font-size: 14px; color: var(--muted); padding: 6px 12px; border-radius: 999px; transition: .2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--surface); }
-    .toggles { display: flex; gap: 6px; }
-    .tbtn { border: 1px solid var(--border); background: var(--surface); color: var(--text); border-radius: 999px; height: 36px; min-width: 36px; padding: 0 12px; cursor: pointer; font: 600 13px Inter; display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
-    .tbtn:hover { border-color: var(--accent); }
-    @media (max-width: 820px) { .nav-links { display: none; } .toggles { margin-left: auto; } }
 
-    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+    /* Sections: label column + content */
+    section { display: grid; grid-template-columns: 180px 1fr; gap: 24px; padding: 40px 0; border-bottom: 1px solid var(--line); }
+    section > h2 { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--faint); padding-top: 3px; }
+    @media (max-width: 720px) { section { grid-template-columns: 1fr; gap: 14px; padding: 32px 0; } }
 
-    /* Hero */
-    .hero { padding: 88px 0 64px; display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: center; }
-    .avatar { position: relative; width: 220px; height: 220px; }
-    .avatar::before { content: ""; position: absolute; inset: -6px; border-radius: 50%; background: conic-gradient(from 0deg, var(--accent), var(--accent-2), var(--accent-3), var(--accent)); animation: spin 8s linear infinite; }
-    .avatar img { position: relative; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 6px solid var(--bg); }
-    .avatar .status { position: absolute; bottom: 14px; right: 14px; width: 22px; height: 22px; border-radius: 50%; background: #22c55e; border: 4px solid var(--bg); }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); padding: 6px 12px; border-radius: 999px; margin-bottom: 18px; }
-    .hero h1 { font-size: clamp(40px, 6.5vw, 72px); letter-spacing: -.02em; }
-    .hero h1 .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .role { font-size: clamp(18px, 2.4vw, 22px); color: var(--muted); margin: 14px 0 0; min-height: 1.6em; }
-    .role b { color: var(--text); font-weight: 600; }
-    .typed::after { content: "▍"; color: var(--accent-2); animation: blink 1s steps(1) infinite; margin-left: 2px; }
-    @keyframes blink { 50% { opacity: 0; } }
-    .hero-meta { display: flex; flex-wrap: wrap; gap: 18px; margin: 18px 0 26px; color: var(--muted); font-size: 15px; }
-    .hero-meta i { color: var(--accent); margin-right: 6px; }
-    .cta { display: flex; flex-wrap: wrap; gap: 12px; }
-    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 12px; font-weight: 600; font-size: 15px; text-decoration: none; transition: transform .2s, box-shadow .2s; border: 1px solid var(--border); background: var(--surface); }
-    .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-    .btn.primary { background: var(--grad); color: #fff; border: 0; background-size: 200% 200%; animation: shift 6s ease infinite; }
-    @keyframes shift { 50% { background-position: 100% 50%; } }
-    @media (max-width: 760px) { .hero { grid-template-columns: 1fr; text-align: center; padding-top: 48px; gap: 28px; } .avatar { margin: 0 auto; width: 170px; height: 170px; } .hero-meta, .cta { justify-content: center; } }
+    .about p { color: var(--muted); font-size: 17px; }
+    .about p + p { margin-top: 14px; }
+    .about strong { color: var(--text); font-weight: 600; }
 
-    /* Stats */
-    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 40px; }
-    .stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; backdrop-filter: blur(10px); }
-    .stat .n { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 40px; font-weight: 700; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; line-height: 1; }
-    .stat .l { color: var(--muted); font-size: 14px; margin-top: 8px; }
-    @media (max-width: 760px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+    /* Entries */
+    .entry { display: grid; grid-template-columns: 130px 1fr; gap: 16px; }
+    .entry + .entry { margin-top: 28px; }
+    .entry .when { font-size: 14px; color: var(--faint); font-variant-numeric: tabular-nums; padding-top: 2px; }
+    .entry h3 { font-size: 17px; font-weight: 600; }
+    .entry .org { font-size: 15px; color: var(--muted); margin-top: 2px; }
+    .entry .org b { color: var(--accent); font-weight: 600; }
+    .entry p, .entry li { color: var(--muted); font-size: 15px; }
+    .entry p { margin-top: 8px; }
+    .entry ul { margin: 8px 0 0; padding-left: 18px; }
+    .entry li + li { margin-top: 4px; }
+    .badge { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); border-radius: 4px; padding: 2px 6px; margin-left: 8px; vertical-align: 2px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .tag { font-size: 12.5px; color: var(--muted); border: 1px solid var(--line); border-radius: 6px; padding: 2px 8px; }
+    @media (max-width: 560px) { .entry { grid-template-columns: 1fr; gap: 2px; } }
 
-    /* Sections */
-    section { padding: 56px 0; scroll-margin-top: 70px; }
-    .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 28px; }
-    .sec-head .num { font-family: "Space Grotesk"; color: var(--accent); font-weight: 700; font-size: 15px; }
-    .sec-head h2 { font-size: clamp(28px, 4vw, 38px); letter-spacing: -.01em; }
-    .sec-head .line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--border), transparent); }
-    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; backdrop-filter: blur(10px); box-shadow: var(--shadow); }
-    .about { display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px; }
-    .about p { margin: 0 0 14px; color: var(--muted); font-size: 17px; }
-    .about p:last-child { margin: 0; }
-    .about p strong { color: var(--text); }
-    .focus h3 { font-size: 18px; margin-bottom: 16px; }
-    .focus ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
-    .focus li { display: flex; gap: 12px; align-items: flex-start; color: var(--muted); font-size: 15px; }
-    .focus li i { color: #fff; background: var(--grad); width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; flex: none; font-size: 13px; }
-    @media (max-width: 820px) { .about { grid-template-columns: 1fr; } }
-
-    /* Timeline */
-    .timeline { position: relative; padding-left: 34px; }
-    .timeline::before { content: ""; position: absolute; left: 10px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(var(--accent), var(--accent-2), var(--accent-3), transparent); border-radius: 2px; }
-    .company { margin-bottom: 36px; }
-    .company-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; position: relative; }
-    .company-head::before { content: ""; position: absolute; left: -31px; width: 16px; height: 16px; border-radius: 50%; background: var(--bg); border: 3px solid var(--accent); box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 18%, transparent); }
-    .company-head h3 { font-size: 22px; }
-    .company-head .tenure { font-size: 13px; color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 2px 10px; }
-    .job { margin-bottom: 14px; padding: 22px 24px; transition: transform .25s, border-color .25s; }
-    .job:hover { transform: translateX(4px); border-color: color-mix(in srgb, var(--accent) 40%, var(--border)); }
-    .job-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; align-items: baseline; }
-    .job h4 { margin: 0; font-size: 17px; font-family: "Space Grotesk", Inter, system-ui, sans-serif; }
-    .job .when { font-size: 13px; font-weight: 600; color: var(--accent); white-space: nowrap; }
-    .job .where { font-size: 13px; color: var(--muted); margin-top: 2px; }
-    .job p, .job li { color: var(--muted); font-size: 15px; }
-    .job p { margin: 10px 0 0; }
-    .job ul { margin: 10px 0 0; padding-left: 18px; }
-    .job li { margin-bottom: 4px; }
-    .now { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #fff; background: var(--grad); padding: 3px 8px; border-radius: 6px; margin-left: 8px; vertical-align: middle; }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
-    .tag { font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 999px; background: color-mix(in srgb, var(--accent-2) 12%, transparent); color: var(--text); border: 1px solid color-mix(in srgb, var(--accent-2) 25%, transparent); }
+    .group-title { font-size: 13px; font-weight: 600; color: var(--text); margin: 36px 0 18px; padding-bottom: 8px; border-bottom: 1px dashed var(--line); }
+    .group-title:first-child { margin-top: 0; }
 
     /* Skills */
-    .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .skill-card h3 { font-size: 17px; display: flex; gap: 10px; align-items: center; margin-bottom: 14px; }
-    .skill-card h3 i { color: var(--accent); }
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chip { font-size: 13px; padding: 6px 12px; border-radius: 10px; background: var(--bg-2); border: 1px solid var(--border); transition: .2s; }
-    .chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-    @media (max-width: 900px) { .skills { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 600px) { .skills { grid-template-columns: 1fr; } }
+    .skills { display: grid; gap: 18px; }
+    .skill-row { display: grid; grid-template-columns: 180px 1fr; gap: 12px; }
+    .skill-row h3 { font-size: 15px; font-weight: 600; }
+    .skill-row p { color: var(--muted); font-size: 15px; }
+    @media (max-width: 560px) { .skill-row { grid-template-columns: 1fr; gap: 2px; } }
 
-    /* Two cols */
-    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    @media (max-width: 820px) { .two { grid-template-columns: 1fr; } }
-    .list-item { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px dashed var(--border); }
-    .list-item:last-child { border: 0; padding-bottom: 0; }
-    .list-item:first-child { padding-top: 0; }
-    .ico { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; flex: none; background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent); }
-    .list-item h4 { margin: 0; font-size: 15px; font-weight: 600; }
-    .list-item .sub { font-size: 13px; color: var(--muted); }
+    /* Simple lists */
+    .list { list-style: none; margin: 0; padding: 0; }
+    .list li { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+    .list li:first-child { padding-top: 0; }
+    .list li:last-child { border-bottom: 0; padding-bottom: 0; }
+    .list .sub { color: var(--faint); white-space: nowrap; font-size: 14px; }
+    @media (max-width: 560px) { .list li { flex-direction: column; gap: 0; } }
 
-    .lang { margin-bottom: 16px; }
-    .lang:last-child { margin: 0; }
-    .lang-top { display: flex; justify-content: space-between; font-size: 15px; margin-bottom: 6px; }
-    .lang-top span:last-child { color: var(--muted); font-size: 13px; }
-    .bar { height: 8px; border-radius: 99px; background: var(--border); overflow: hidden; }
-    .bar i { display: block; height: 100%; width: 0; background: var(--grad); border-radius: 99px; transition: width 1.4s cubic-bezier(.2,.8,.2,1); }
-    .in .bar i { width: var(--w); }
+    .langs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .lang { border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; background: var(--surface); }
+    .lang h3 { font-size: 15px; font-weight: 600; }
+    .lang p { color: var(--muted); font-size: 14px; }
+    .lang .lvl { font-weight: 700; color: var(--accent); }
+    @media (max-width: 560px) { .langs { grid-template-columns: 1fr; } }
 
-    /* Projects */
-    .projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .project { position: relative; overflow: hidden; transition: transform .25s; }
-    .project:hover { transform: translateY(-4px); }
-    .project .kind { font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .06em; }
-    .project h3 { font-size: 17px; margin: 8px 0 10px; }
-    .project p { margin: 0; color: var(--muted); font-size: 14px; }
-    .project::after { content: ""; position: absolute; right: -40px; top: -40px; width: 120px; height: 120px; border-radius: 50%; background: var(--grad); opacity: .12; }
-    @media (max-width: 900px) { .projects { grid-template-columns: 1fr; } }
+    .projects { display: grid; gap: 18px; }
+    .projects h3 { font-size: 16px; font-weight: 600; }
+    .projects p { color: var(--muted); font-size: 15px; margin-top: 4px; }
 
-    /* Contact */
-    .contact { text-align: center; padding: 56px 28px; background: var(--grad); color: #fff; border: 0; position: relative; overflow: hidden; }
-    .contact h2 { font-size: clamp(28px, 4vw, 42px); }
-    .contact p { opacity: .9; max-width: 560px; margin: 12px auto 24px; }
-    .contact .btn { background: #fff; color: #111; border: 0; }
-    .contact .btn.ghost { background: rgba(255,255,255,.15); color: #fff; border: 1px solid rgba(255,255,255,.4); }
-    .contact .cta { justify-content: center; }
+    .contact p { color: var(--muted); font-size: 17px; }
+    footer { padding: 32px 0 48px; color: var(--faint); font-size: 13px; }
 
-    footer { text-align: center; color: var(--muted); font-size: 13px; padding: 36px 0 48px; }
-
-    /* Reveal */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-    .reveal.in { opacity: 1; transform: none; }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation: none !important; transition: none !important; }
-      .reveal { opacity: 1; transform: none; }
+    @media print {
+      .top, .actions { display: none; }
+      body { background: #fff; }
     }
-    @media print { nav, .bg, .toggles { display: none; } .reveal { opacity: 1; transform: none; } }
   </style>
 </head>
 <body>
-  <div class="bg" aria-hidden="true"><div class="grid-overlay"></div><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+  <!-- Iconos SVG reutilizables -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3v-11zm6.5 0h3.8v1.5h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4v-11z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  </svg>
 
-  <nav>
-    <div class="nav-inner">
-      <a class="logo" href="#top">ÓLR</a>
-      <div class="nav-links">
-        <a href="#about"><span lang="es">Sobre mí</span><span lang="en">About</span></a>
-        <a href="#experience"><span lang="es">Experiencia</span><span lang="en">Experience</span></a>
-        <a href="#skills"><span lang="es">Aptitudes</span><span lang="en">Skills</span></a>
-        <a href="#education"><span lang="es">Formación</span><span lang="en">Education</span></a>
-        <a href="#contact"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
-      </div>
-      <div class="toggles">
-        <button class="tbtn" id="langBtn" aria-label="Cambiar idioma / Switch language"><i class="fa-solid fa-language"></i><span id="langLabel">EN</span></button>
-        <button class="tbtn" id="themeBtn" aria-label="Cambiar tema"><i class="fa-solid fa-moon" id="themeIcon"></i></button>
-      </div>
+  <div class="wrap">
+    <div class="top">
+      <button class="tbtn" id="langBtn" aria-label="Cambiar idioma / Switch language"><span id="langLabel">English</span></button>
+      <button class="tbtn" id="themeBtn" aria-label="Cambiar tema / Toggle theme"><svg><use id="themeIcon" href="#i-moon"/></svg></button>
     </div>
-  </nav>
 
-  <main class="wrap" id="top">
-    <!-- HERO -->
     <header class="hero">
-      <div class="avatar reveal"><img src="assets/images/photo.png" alt="Óscar López Ruiz" width="220" height="220"><span class="status" title="IBM"></span></div>
-      <div class="reveal">
-        <span class="eyebrow"><i class="fa-solid fa-bolt"></i><span lang="es">Integración · Automatización · Modernización</span><span lang="en">Integration · Automation · Modernization</span></span>
-        <h1>Óscar <span class="grad">López Ruiz</span></h1>
-        <p class="role"><b>Customer Success Engineering</b> @ IBM — <span class="typed" id="typed"></span></p>
-        <div class="hero-meta">
-          <span><i class="fa-solid fa-location-dot"></i>Madrid, España</span>
-          <span><i class="fa-solid fa-briefcase"></i><span lang="es">+11 años en IBM</span><span lang="en">11+ years at IBM</span></span>
-          <span><i class="fa-solid fa-language"></i>ES · EN · FR</span>
+      <img src="assets/images/photo.png" alt="Óscar López Ruiz" width="112" height="112">
+      <div>
+        <h1>Óscar López Ruiz</h1>
+        <p class="role"><strong>Customer Success Engineering</strong> · IBM</p>
+        <div class="meta">
+          <span><svg><use href="#i-pin"/></svg>Madrid, España</span>
+          <span><span lang="es">Integración · Automatización · Modernización de aplicaciones</span><span lang="en">Integration · Automation · Application modernization</span></span>
         </div>
-        <div class="cta">
-          <a class="btn primary" href="#contact"><i class="fa-solid fa-paper-plane"></i><span lang="es">Contactar</span><span lang="en">Get in touch</span></a>
-          <a class="btn" href="https://www.linkedin.com/in/oscarlopezruiz" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
-          <a class="btn" href="https://github.com/olopezr" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>GitHub</a>
+        <div class="actions">
+          <a class="btn primary" href="assets/cv/CV_Oscar_Lopez_Ruiz.pdf" download><svg><use href="#i-download"/></svg><span lang="es">Descargar CV (PDF)</span><span lang="en">Download CV (PDF)</span></a>
+          <a class="btn" href="https://www.linkedin.com/in/oscarlopezruiz" target="_blank" rel="noopener"><svg><use href="#i-linkedin"/></svg>LinkedIn</a>
+          <a class="btn" href="https://github.com/olopezr" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg>GitHub</a>
         </div>
       </div>
     </header>
 
-    <div class="stats reveal">
-      <div class="stat"><div class="n" data-count="11">0</div><div class="l"><span lang="es">años en IBM</span><span lang="en">years at IBM</span></div></div>
-      <div class="stat"><div class="n" data-count="18">0</div><div class="l"><span lang="es">años en tecnología</span><span lang="en">years in tech</span></div></div>
-      <div class="stat"><div class="n" data-count="5">0</div><div class="l"><span lang="es">roles técnicos en IBM</span><span lang="en">technical roles at IBM</span></div></div>
-      <div class="stat"><div class="n" data-count="5">0</div><div class="l"><span lang="es">certificaciones</span><span lang="en">certifications</span></div></div>
-    </div>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="sec-head reveal"><span class="num">01</span><h2><span lang="es">Sobre mí</span><span lang="en">About me</span></h2><span class="line"></span></div>
-      <div class="about">
-        <div class="card reveal">
-          <div lang="es">
-            <p>Soy <strong>especialista en herramientas de integración y automatización en IBM</strong>, con experiencia en el diseño e implementación de soluciones innovadoras para multitud de clientes, lo que me permite adaptarme a las necesidades y expectativas del mercado digital.</p>
-            <p>Mi pasión es explorar y aprender las últimas novedades tecnológicas, especialmente en <strong>integración y automatización</strong>. Trabajo con clientes y partners del ecosistema para hacer avanzar las oportunidades de venta, aportando mi visión como <strong>tecnólogo, practicante y líder de proyectos</strong>.</p>
-            <p>Mi objetivo: facilitar el éxito de los clientes y el crecimiento del negocio de IBM aplicando las mejores prácticas y herramientas disponibles.</p>
-          </div>
-          <div lang="en">
-            <p>I'm an <strong>integration and automation specialist at IBM</strong>, experienced in designing and implementing innovative solutions for a wide range of clients, which lets me adapt to the needs and expectations of the digital market.</p>
-            <p>I love exploring the latest in technology, especially <strong>integration and automation</strong>. I work with clients and ecosystem partners to progress sales opportunities, bringing my perspective as a <strong>technologist, practitioner and project leader</strong>.</p>
-            <p>My goal: enable client success and IBM business growth through best practices and the best tools available.</p>
-          </div>
+    <section class="about">
+      <h2><span lang="es">Sobre mí</span><span lang="en">About</span></h2>
+      <div>
+        <div lang="es">
+          <p>Soy <strong>especialista en integración y automatización en IBM</strong>, con más de 11 años diseñando e implantando soluciones para clientes de múltiples sectores.</p>
+          <p>Trabajo con clientes y Business Partners como <strong>tecnólogo, practicante y líder de proyectos</strong>: elimino barreras técnicas, demuestro valor con demos, pruebas de concepto y workshops, y acompaño la adopción con planes de éxito medibles. Me apasionan las arquitecturas orientadas a eventos, las APIs y la modernización de aplicaciones sobre Red Hat OpenShift.</p>
         </div>
-        <div class="card focus reveal">
-          <h3><span lang="es">En qué me centro</span><span lang="en">What I focus on</span></h3>
-          <ul>
-            <li><i class="fa-solid fa-diagram-project"></i><span><span lang="es">Diseño de soluciones de integración, APIs y arquitecturas orientadas a eventos</span><span lang="en">Designing integration, API and event-driven architectures</span></span></li>
-            <li><i class="fa-solid fa-flask"></i><span><span lang="es">Demos, PoC, PoT, workshops y MVPs — «show me, don't tell me»</span><span lang="en">Demos, PoCs, PoTs, workshops and MVPs — "show me, don't tell me"</span></span></li>
-            <li><i class="fa-solid fa-cloud"></i><span><span lang="es">Modernización de aplicaciones hacia Liberty y Red Hat OpenShift</span><span lang="en">Application modernization to Liberty and Red Hat OpenShift</span></span></li>
-            <li><i class="fa-solid fa-handshake"></i><span><span lang="es">Adopción y valor medible: planes de éxito con sponsors del cliente</span><span lang="en">Adoption and measurable value: success plans with client sponsors</span></span></li>
-          </ul>
+        <div lang="en">
+          <p>I'm an <strong>integration and automation specialist at IBM</strong> with 11+ years designing and delivering solutions for clients across many industries.</p>
+          <p>I work with clients and Business Partners as a <strong>technologist, practitioner and project leader</strong>: I remove technical blockers, prove value through demos, proofs of concept and workshops, and drive adoption with measurable success plans. I'm passionate about event-driven architecture, APIs and application modernization on Red Hat OpenShift.</p>
         </div>
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience">
-      <div class="sec-head reveal"><span class="num">02</span><h2><span lang="es">Experiencia</span><span lang="en">Experience</span></h2><span class="line"></span></div>
-      <div class="timeline">
-
-        <div class="company">
-          <div class="company-head reveal"><h3>IBM</h3><span class="tenure"><span lang="es">2015 – actualidad · Madrid</span><span lang="en">2015 – present · Madrid</span></span></div>
-
-          <article class="card job reveal">
-            <div class="job-top"><h4>Customer Success Engineering<span class="now"><span lang="es">Actual</span><span lang="en">Current</span></span></h4><span class="when"><span lang="es">ene 2026 – actualidad</span><span lang="en">Jan 2026 – present</span></span></div>
-            <p lang="es">Experto técnico que diseña soluciones viables para el cliente con las capacidades actuales de producto, elimina los inhibidores técnicos de las oportunidades e impulsa la adopción y expansión de los productos IBM. Tras el cierre de la venta, activa el valor: identifica sponsors, conduce workshops de casos de uso, define resultados de negocio medibles y elabora planes de éxito con hojas de ruta y hitos, convirtiéndose en guía de confianza para la modernización del cliente.</p>
-            <p lang="en">Technical expert who designs viable client solutions with current product capabilities, removes technical inhibitors to sales and drives adoption and expansion of IBM products. After the sale, drives value: finds sponsors, runs use-case workshops, sets measurable business outcomes and builds success plans with roadmaps and milestones — becoming a trusted guide for the client's modernization.</p>
-            <div class="tags"><span class="tag">Demos · PoC · PoT</span><span class="tag">Solution Design</span><span class="tag">MVP</span><span class="tag">Success Plans</span></div>
-          </article>
-
-          <article class="card job reveal">
-            <div class="job-top"><h4>IBM Automation — App Modernization Technical Sales</h4><span class="when"><span lang="es">ene 2023 – ene 2026</span><span lang="en">Jan 2023 – Jan 2026</span></span></div>
-            <p lang="es">Interlocutor con los clientes con un punto de vista propio como tecnólogo, practicante y experto de marca IBM. Identificación de los Business Partners adecuados para cada oportunidad y uso del conocimiento técnico para eliminar barreras y llevar las oportunidades al cierre.</p>
-            <p lang="en">Engaged clients with an opinionated point of view as an IBM technologist, practitioner and brand specialist. Identified the right Business Partners for each opportunity and used technical insight to remove inhibitors and progress deals to closure.</p>
-            <div class="tags"><span class="tag">WebSphere Liberty</span><span class="tag">Red Hat OpenShift</span><span class="tag">Business Partners</span></div>
-          </article>
-
-          <article class="card job reveal">
-            <div class="job-top"><h4>Brand Technical Specialist — Automation &amp; Integration</h4><span class="when"><span lang="es">ene 2022 – ene 2023</span><span lang="en">Jan 2022 – Jan 2023</span></span></div>
-            <p lang="es">Diseño de soluciones técnicas con enfoque práctico y de venta experiencial («show me, don't tell me»): propuesta de valor y ROI, análisis competitivo y casos de uso. Entrega de pruebas técnicas: demos, PoT, PoC, workshops, propuestas y MVPs.</p>
-            <p lang="en">Designed technical solutions with a hands-on, experiential selling approach ("show me, don't tell me"): value proposition and ROI, competitive landscape and use cases. Delivered technical proof points: demos, POTs, POCs, workshops, proposals and MVPs.</p>
-            <div class="tags"><span class="tag">IBM Event Streams</span><span class="tag">IBM MQ</span><span class="tag">API Connect</span></div>
-          </article>
-
-          <article class="card job reveal">
-            <div class="job-top"><h4>Hybrid Cloud — Integration Technical Specialist</h4><span class="when"><span lang="es">jul 2020 – ene 2022</span><span lang="en">Jul 2020 – Jan 2022</span></span></div>
+    <section>
+      <h2><span lang="es">Experiencia</span><span lang="en">Experience</span></h2>
+      <div>
+        <div class="entry">
+          <div class="when"><span lang="es">2026 – hoy</span><span lang="en">2026 – now</span></div>
+          <div>
+            <h3>Customer Success Engineering<span class="badge"><span lang="es">Actual</span><span lang="en">Current</span></span></h3>
+            <div class="org"><b>IBM</b> · Madrid</div>
+            <p lang="es">Diseño soluciones viables con las capacidades actuales de producto, elimino inhibidores técnicos en las oportunidades e impulso la adopción y expansión de la tecnología IBM. Tras la venta, activo el valor: identifico sponsors, conduzco workshops de casos de uso y elaboro planes de éxito con hojas de ruta, hitos y resultados medibles.</p>
+            <p lang="en">I design viable solutions with current product capabilities, remove technical inhibitors and drive adoption and expansion of IBM technology. After the sale I drive value: finding sponsors, running use-case workshops and building success plans with roadmaps, milestones and measurable outcomes.</p>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="when">2023 – 2026</div>
+          <div>
+            <h3>App Modernization Technical Sales</h3>
+            <div class="org"><b>IBM</b> Automation · Madrid</div>
+            <p lang="es">Interlocutor técnico con clientes y Business Partners: punto de vista propio como experto de marca, selección de los partners adecuados y conocimiento técnico para llevar las oportunidades al cierre.</p>
+            <p lang="en">Technical counterpart for clients and Business Partners: an opinionated brand-expert point of view, engaging the right partners and using technical insight to progress opportunities to closure.</p>
+            <div class="tags"><span class="tag">WebSphere Liberty</span><span class="tag">Red Hat OpenShift</span></div>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="when">2022 – 2023</div>
+          <div>
+            <h3>Brand Technical Specialist — Automation &amp; Integration</h3>
+            <div class="org"><b>IBM</b> · Madrid</div>
+            <p lang="es">Venta técnica experiencial («show me, don't tell me»): propuesta de valor y ROI, análisis competitivo, casos de uso y entrega de demos, PoT, PoC, workshops y MVPs.</p>
+            <p lang="en">Experiential technical selling ("show me, don't tell me"): value proposition and ROI, competitive landscape, use cases and delivery of demos, POTs, POCs, workshops and MVPs.</p>
+            <div class="tags"><span class="tag">Event Streams</span><span class="tag">MQ</span><span class="tag">API Connect</span></div>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="when">2020 – 2022</div>
+          <div>
+            <h3>Integration Technical Specialist</h3>
+            <div class="org"><b>IBM</b> Hybrid Cloud · Madrid</div>
             <p lang="es">Especialista técnico en el portfolio de integración de IBM Hybrid Cloud.</p>
             <p lang="en">Technical specialist for the IBM Hybrid Cloud integration portfolio.</p>
-            <div class="tags"><span class="tag">Cloud Pak for Integration</span><span class="tag">API Connect</span></div>
-          </article>
-
-          <article class="card job reveal">
-            <div class="job-top"><h4>Accelerated Value Leader / Specialist</h4><span class="when"><span lang="es">oct 2015 – jul 2020</span><span lang="en">Oct 2015 – Jul 2020</span></span></div>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="when">2015 – 2020</div>
+          <div>
+            <h3>Accelerated Value Leader / Specialist</h3>
+            <div class="org"><b>IBM</b> · Madrid</div>
             <ul lang="es">
-              <li>Contacto directo con clientes para recoger requisitos y nuevos proyectos; nexo entre el laboratorio de producto y el cliente para resolver incidencias.</li>
-              <li>Asesor proactivo en la mejora de soluciones y la transformación digital; informes de crecimiento, dimensionamiento y buenas prácticas.</li>
-              <li>Nuevas oportunidades con Design Thinking y pilotos sobre IBM Digital Experience (HTML5, CSS, JavaScript).</li>
-              <li>Arquitectura y desarrollo de aplicaciones internas con AngularJS, Node.js y NoSQL.</li>
+              <li>Enlace entre el laboratorio de producto y el cliente; recogida de requisitos y resolución de incidencias.</li>
+              <li>Asesoramiento proactivo, informes de dimensionamiento y buenas prácticas.</li>
+              <li>Pilotos con Design Thinking sobre IBM Digital Experience y aplicaciones internas con AngularJS, Node.js y NoSQL.</li>
             </ul>
             <ul lang="en">
-              <li>Direct client contact to gather requirements and new projects; link between the product lab and the client to resolve issues.</li>
-              <li>Proactive advisor on solution improvement and digital transformation; growth, sizing and best-practice reports.</li>
-              <li>New opportunities using Design Thinking and pilots on IBM Digital Experience (HTML5, CSS, JavaScript).</li>
-              <li>Architecture and development of internal apps with AngularJS, Node.js and NoSQL.</li>
+              <li>Link between the product lab and clients; requirements gathering and issue resolution.</li>
+              <li>Proactive advisory, sizing and best-practice reports.</li>
+              <li>Design Thinking pilots on IBM Digital Experience and internal apps with AngularJS, Node.js and NoSQL.</li>
             </ul>
-            <div class="tags"><span class="tag">WebSphere Application Server</span><span class="tag">BPM</span><span class="tag">InfoSphere IIS</span><span class="tag">Db2</span><span class="tag">API Connect</span><span class="tag">Cloud Pak for Integration</span></div>
-          </article>
+            <div class="tags"><span class="tag">WebSphere</span><span class="tag">BPM</span><span class="tag">Db2</span><span class="tag">InfoSphere</span><span class="tag">API Connect</span><span class="tag">Cloud Pak for Integration</span></div>
+          </div>
         </div>
-
-        <div class="company">
-          <div class="company-head reveal"><h3><span lang="es">Inicios</span><span lang="en">Early career</span></h3><span class="tenure">2008 – 2015 · Cantabria</span></div>
-
-          <article class="card job reveal">
-            <div class="job-top"><h4><span lang="es">Programador web junior</span><span lang="en">Junior Web Developer</span> — ISBAN</h4><span class="when"><span lang="es">feb – jul 2015</span><span lang="en">Feb – Jul 2015</span></span></div>
-            <p lang="es">Desarrollo front-end con HTML5, CSS, JavaScript, JSP, Spring, Maven, Hibernate y Oracle DB. Pruebas con ALM y metodología Scrum.</p>
-            <p lang="en">Front-end development with HTML5, CSS, JavaScript, JSP, Spring, Maven, Hibernate and Oracle DB. Testing with ALM and Scrum methodology.</p>
-          </article>
-
-          <article class="card job reveal">
-            <div class="job-top"><h4><span lang="es">Desarrollador de sistemas embebidos</span><span lang="en">Embedded Systems Developer</span> — Empiric Technologies</h4><span class="when"><span lang="es">abr – sep 2014</span><span lang="en">Apr – Sep 2014</span></span></div>
-            <p lang="es">Beca Santander de Prácticas en PYMES. Prototipos electrónicos y software embebido para sensórica remota y comunicaciones.</p>
-            <p lang="en">Santander SME Internship Grant. Electronic prototypes and embedded software for remote sensing and communications.</p>
-          </article>
-
-          <article class="card job reveal">
-            <div class="job-top"><h4><span lang="es">Programas de emprendimiento</span><span lang="en">Entrepreneurship programmes</span> — CISE</h4><span class="when">2014</span></div>
-            <p lang="es">Yuzz Cantabria «Jóvenes con Ideas» y e2 «Estudiante × Emprendedor» en el Centro Internacional Santander Emprendimiento.</p>
-            <p lang="en">Yuzz Cantabria "Young people with ideas" and e2 "Student × Entrepreneur" at the Santander International Entrepreneurship Centre.</p>
-          </article>
-
-          <article class="card job reveal">
-            <div class="job-top"><h4><span lang="es">Diseñador web freelance</span><span lang="en">Freelance Web Designer</span></h4><span class="when">2008 – 2014</span></div>
+        <div class="entry">
+          <div class="when">2015</div>
+          <div>
+            <h3><span lang="es">Programador web junior</span><span lang="en">Junior Web Developer</span></h3>
+            <div class="org"><b>ISBAN</b> · Santander</div>
+            <p lang="es">Front-end con HTML5, JavaScript, JSP, Spring, Hibernate y Oracle DB; pruebas con ALM y Scrum.</p>
+            <p lang="en">Front-end with HTML5, JavaScript, JSP, Spring, Hibernate and Oracle DB; testing with ALM and Scrum.</p>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="when">2014</div>
+          <div>
+            <h3><span lang="es">Desarrollador de sistemas embebidos</span><span lang="en">Embedded Systems Developer</span></h3>
+            <div class="org"><b>Empiric Technologies</b> · Santander</div>
+            <p lang="es">Prototipos electrónicos y software embebido para sensórica remota (Beca Santander de Prácticas en PYMES).</p>
+            <p lang="en">Electronic prototypes and embedded software for remote sensing (Santander SME Internship Grant).</p>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="when">2008 – 2014</div>
+          <div>
+            <h3><span lang="es">Diseñador web freelance</span><span lang="en">Freelance Web Designer</span></h3>
             <p lang="es">Diseño, administración y adaptación de plataformas web.</p>
             <p lang="en">Web platform design, administration and customization.</p>
-          </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- SKILLS -->
-    <section id="skills">
-      <div class="sec-head reveal"><span class="num">03</span><h2><span lang="es">Aptitudes</span><span lang="en">Skills</span></h2><span class="line"></span></div>
+    <section>
+      <h2><span lang="es">Aptitudes</span><span lang="en">Skills</span></h2>
       <div class="skills">
-        <div class="card skill-card reveal"><h3><i class="fa-solid fa-plug"></i><span lang="es">Integración y eventos</span><span lang="en">Integration &amp; events</span></h3>
-          <div class="chips"><span class="chip">IBM Event Streams</span><span class="chip">Apache Kafka</span><span class="chip">IBM MQ</span><span class="chip">IBM API Connect</span><span class="chip">Cloud Pak for Integration</span><span class="chip">Node-RED</span></div></div>
-        <div class="card skill-card reveal"><h3><i class="fa-solid fa-cubes"></i><span lang="es">Cloud y modernización</span><span lang="en">Cloud &amp; modernization</span></h3>
-          <div class="chips"><span class="chip">Red Hat OpenShift</span><span class="chip">Kubernetes</span><span class="chip">Docker</span><span class="chip">WebSphere Liberty</span><span class="chip">WebSphere Application Server</span><span class="chip">DevOps toolchain</span></div></div>
-        <div class="card skill-card reveal"><h3><i class="fa-solid fa-gears"></i><span lang="es">Automatización y datos</span><span lang="en">Automation &amp; data</span></h3>
-          <div class="chips"><span class="chip">IBM BPM</span><span class="chip">IBM Db2</span><span class="chip">InfoSphere Information Server</span><span class="chip">Hyperledger Fabric</span></div></div>
-        <div class="card skill-card reveal"><h3><i class="fa-solid fa-code"></i><span lang="es">Desarrollo</span><span lang="en">Development</span></h3>
-          <div class="chips"><span class="chip">JavaScript</span><span class="chip">Node.js</span><span class="chip">Angular</span><span class="chip">Java / Spring</span><span class="chip">HTML5 &amp; CSS3</span><span class="chip">NoSQL</span></div></div>
-        <div class="card skill-card reveal"><h3><i class="fa-solid fa-chart-line"></i><span lang="es">Venta técnica</span><span lang="en">Technical sales</span></h3>
-          <div class="chips"><span class="chip">Solution Design</span><span class="chip">Demos · PoC · PoT</span><span class="chip">Workshops</span><span class="chip">ROI</span><span class="chip">Business Partners</span></div></div>
-        <div class="card skill-card reveal"><h3><i class="fa-solid fa-lightbulb"></i><span lang="es">Metodologías</span><span lang="en">Methodologies</span></h3>
-          <div class="chips"><span class="chip">Design Thinking</span><span class="chip">Agile / Scrum</span><span class="chip">Lean Startup</span><span class="chip">Agile Explorer</span></div></div>
+        <div class="skill-row"><h3><span lang="es">Integración y eventos</span><span lang="en">Integration &amp; events</span></h3><p>IBM Event Streams (Kafka), IBM MQ, API Connect, Cloud Pak for Integration, Node-RED</p></div>
+        <div class="skill-row"><h3><span lang="es">Cloud y contenedores</span><span lang="en">Cloud &amp; containers</span></h3><p>Red Hat OpenShift, Kubernetes, Docker, DevOps toolchain</p></div>
+        <div class="skill-row"><h3>Middleware</h3><p>WebSphere Liberty, WebSphere Application Server, BPM, Db2, InfoSphere Information Server</p></div>
+        <div class="skill-row"><h3><span lang="es">Desarrollo</span><span lang="en">Development</span></h3><p>JavaScript, Node.js, Angular, Java / Spring, HTML5 &amp; CSS, NoSQL</p></div>
+        <div class="skill-row"><h3><span lang="es">Venta técnica</span><span lang="en">Technical sales</span></h3><p><span lang="es">Diseño de soluciones, demos, PoC/PoT, workshops, ROI, Business Partners</span><span lang="en">Solution design, demos, PoC/PoT, workshops, ROI, Business Partners</span></p></div>
+        <div class="skill-row"><h3><span lang="es">Metodologías</span><span lang="en">Methodologies</span></h3><p>Design Thinking, Agile / Scrum, Lean Startup</p></div>
       </div>
     </section>
 
-    <!-- EDUCATION + CERTS -->
-    <section id="education">
-      <div class="sec-head reveal"><span class="num">04</span><h2><span lang="es">Formación y certificaciones</span><span lang="en">Education &amp; certifications</span></h2><span class="line"></span></div>
-      <div class="two">
-        <div class="card reveal">
-          <div class="list-item"><div class="ico"><i class="fa-solid fa-rocket"></i></div><div><h4>Master in Digital Business &amp; Lean Startup</h4><div class="sub">IEBS · 2018 – 2019</div></div></div>
-          <div class="list-item"><div class="ico"><i class="fa-solid fa-graduation-cap"></i></div><div><h4><span lang="es">Grado en Ingeniería de Tecnologías de Telecomunicación</span><span lang="en">BSc Telecommunication Technologies Engineering</span></h4><div class="sub"><span lang="es">Universidad de Cantabria · Mención en Sistemas Electrónicos</span><span lang="en">University of Cantabria · Electronic Systems</span></div></div></div>
-          <div class="list-item"><div class="ico"><i class="fa-solid fa-graduation-cap"></i></div><div><h4><span lang="es">Ingeniero Técnico de Telecomunicación</span><span lang="en">Technical Telecommunications Engineer</span></h4><div class="sub"><span lang="es">Universidad de Cantabria · Esp. Sistemas Electrónicos</span><span lang="en">University of Cantabria · Electronic Systems</span></div></div></div>
-        </div>
-        <div class="card reveal">
-          <div class="list-item"><div class="ico"><i class="fa-brands fa-redhat"></i></div><div><h4>Red Hat OpenShift Administration III: Scaling Deployments in the Enterprise (DO380)</h4><div class="sub">Red Hat · v4.14</div></div></div>
-          <div class="list-item"><div class="ico"><i class="fa-solid fa-envelope-open-text"></i></div><div><h4>Messaging Technical Sales — Advanced</h4><div class="sub">IBM</div></div></div>
-          <div class="list-item"><div class="ico"><i class="fa-solid fa-award"></i></div><div><h4>Client Success and Support: Professional</h4><div class="sub">IBM</div></div></div>
-          <div class="list-item"><div class="ico"><i class="fa-solid fa-link"></i></div><div><h4>Blockchain Essentials for Developers</h4><div class="sub">IBM</div></div></div>
-          <div class="list-item"><div class="ico"><i class="fa-solid fa-robot"></i></div><div><h4>Node-RED: basics to bots</h4><div class="sub">IBM</div></div></div>
-        </div>
+    <section>
+      <h2><span lang="es">Formación</span><span lang="en">Education</span></h2>
+      <ul class="list">
+        <li><span>Máster en Digital Business &amp; Lean Startup — IEBS</span><span class="sub">2018 – 2019</span></li>
+        <li><span><span lang="es">Grado en Ingeniería de Tecnologías de Telecomunicación</span><span lang="en">BSc Telecommunication Technologies Engineering</span> — Universidad de Cantabria</span><span class="sub">2014 – 2016</span></li>
+        <li><span><span lang="es">Ingeniero Técnico de Telecomunicación, Sistemas Electrónicos</span><span lang="en">Technical Telecommunications Engineer, Electronic Systems</span> — Universidad de Cantabria</span><span class="sub">2008 – 2014</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span lang="es">Certificaciones</span><span lang="en">Certifications</span></h2>
+      <ul class="list">
+        <li><span>Red Hat OpenShift Administration III: Scaling Deployments in the Enterprise (DO380)</span><span class="sub">Red Hat</span></li>
+        <li><span>Messaging Technical Sales — Advanced</span><span class="sub">IBM</span></li>
+        <li><span>Client Success and Support: Professional</span><span class="sub">IBM</span></li>
+        <li><span>Blockchain Essentials for Developers</span><span class="sub">IBM</span></li>
+        <li><span>Node-RED: basics to bots</span><span class="sub">IBM</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span lang="es">Idiomas</span><span lang="en">Languages</span></h2>
+      <div class="langs">
+        <div class="lang"><h3><span lang="es">Español</span><span lang="en">Spanish</span></h3><p><span lang="es">Lengua materna</span><span lang="en">Native</span></p></div>
+        <div class="lang"><h3><span lang="es">Inglés</span><span lang="en">English</span></h3><p><span class="lvl">C1</span> · <span lang="es">profesional completo</span><span lang="en">full professional</span></p></div>
+        <div class="lang"><h3><span lang="es">Francés</span><span lang="en">French</span></h3><p><span class="lvl">A2</span> · <span lang="es">básico</span><span lang="en">elementary</span></p></div>
       </div>
     </section>
 
-    <!-- LANGUAGES + PROJECTS -->
-    <section id="projects">
-      <div class="sec-head reveal"><span class="num">05</span><h2><span lang="es">Idiomas y proyectos</span><span lang="en">Languages &amp; projects</span></h2><span class="line"></span></div>
-      <div class="card reveal" style="margin-bottom:20px">
-        <div class="lang"><div class="lang-top"><span><span lang="es">Español</span><span lang="en">Spanish</span></span><span><span lang="es">Nativo</span><span lang="en">Native</span></span></div><div class="bar"><i style="--w:100%"></i></div></div>
-        <div class="lang"><div class="lang-top"><span><span lang="es">Inglés</span><span lang="en">English</span></span><span><span lang="es">Competencia profesional completa</span><span lang="en">Full professional</span></span></div><div class="bar"><i style="--w:85%"></i></div></div>
-        <div class="lang"><div class="lang-top"><span><span lang="es">Francés</span><span lang="en">French</span></span><span><span lang="es">Básico</span><span lang="en">Elementary</span></span></div><div class="bar"><i style="--w:35%"></i></div></div>
-      </div>
+    <section>
+      <h2><span lang="es">Proyectos</span><span lang="en">Projects</span></h2>
       <div class="projects">
-        <div class="card project reveal"><span class="kind">IoT · Open source</span><h3><span lang="es">Monitorización ambiental con energía solar</span><span lang="en">Solar-powered environmental monitoring</span></h3><p lang="es">Estación autosuficiente con sensores RF y Raspberry Pi que recoge, almacena y visualiza en tiempo real datos ambientales, alimentada con energía fotovoltaica.</p><p lang="en">Self-sufficient station with RF sensors and a Raspberry Pi that collects, stores and visualizes environmental data in real time, powered by solar energy.</p></div>
-        <div class="card project reveal"><span class="kind"><span lang="es">Docencia</span><span lang="en">Teaching</span></span><h3><span lang="es">Práctica didáctica: kit aerogenerador</span><span lang="en">Lab exercise: wind turbine kit</span></h3><p lang="es">Diseño de una práctica para caracterizar un aerogenerador en una asignatura de energías renovables de la Universidad de Cantabria.</p><p lang="en">Designed a lab exercise to characterize a wind turbine for a renewable energy course at the University of Cantabria.</p></div>
-        <div class="card project reveal"><span class="kind">Web</span><h3><span lang="es">Este sitio</span><span lang="en">This website</span></h3><p lang="es">Web personal ligera, bilingüe, con modo oscuro y sin dependencias de frameworks, publicada en GitHub Pages.</p><p lang="en">Lightweight, bilingual personal site with dark mode and no framework dependencies, hosted on GitHub Pages.</p></div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="card contact reveal">
-        <h2><span lang="es">¿Hablamos?</span><span lang="en">Let's talk</span></h2>
-        <p><span lang="es">Integración, eventos, APIs o modernización de aplicaciones: si tienes un reto, me encantará escucharlo.</span><span lang="en">Integration, events, APIs or application modernization: if you have a challenge, I'd love to hear about it.</span></p>
-        <div class="cta">
-          <a class="btn" href="https://www.linkedin.com/in/oscarlopezruiz" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
-          <a class="btn ghost" href="https://linktr.ee/olopezr" target="_blank" rel="noopener"><i class="fa-solid fa-link"></i>linktr.ee/olopezr</a>
+        <div>
+          <h3><span lang="es">Monitorización ambiental con energía solar</span><span lang="en">Solar-powered environmental monitoring</span></h3>
+          <p lang="es">Estación autosuficiente con sensores RF y Raspberry Pi que recoge, almacena y visualiza datos ambientales en tiempo real.</p>
+          <p lang="en">Self-sufficient station with RF sensors and a Raspberry Pi that collects, stores and visualizes environmental data in real time.</p>
+        </div>
+        <div>
+          <h3><span lang="es">Práctica didáctica: kit aerogenerador</span><span lang="en">Lab exercise: wind turbine kit</span></h3>
+          <p lang="es">Práctica para caracterizar un aerogenerador en una asignatura de energías renovables de la Universidad de Cantabria.</p>
+          <p lang="en">Lab exercise to characterize a wind turbine for a renewable energy course at the University of Cantabria.</p>
+        </div>
+        <div>
+          <h3><span lang="es">Programas de emprendimiento</span><span lang="en">Entrepreneurship programmes</span></h3>
+          <p lang="es">Yuzz «Jóvenes con Ideas» y e2 «Estudiante × Emprendedor» en CISE, Santander (2014).</p>
+          <p lang="en">Yuzz "Young people with ideas" and e2 "Student × Entrepreneur" at CISE, Santander (2014).</p>
         </div>
       </div>
     </section>
-  </main>
 
-  <footer>© <span id="year">2026</span> Óscar López Ruiz · <span lang="es">Hecho a mano y publicado en GitHub Pages</span><span lang="en">Handcrafted and hosted on GitHub Pages</span></footer>
+    <section class="contact" style="border-bottom:0">
+      <h2><span lang="es">Contacto</span><span lang="en">Contact</span></h2>
+      <div>
+        <p><span lang="es">¿Integración, eventos, APIs o modernización de aplicaciones? Escríbeme por LinkedIn o encuentra todos mis enlaces en</span><span lang="en">Integration, events, APIs or app modernization? Reach me on LinkedIn or find all my links at</span> <a href="https://linktr.ee/olopezr" target="_blank" rel="noopener">linktr.ee/olopezr</a>.</p>
+        <div class="actions">
+          <a class="btn primary" href="assets/cv/CV_Oscar_Lopez_Ruiz.pdf" download><svg><use href="#i-download"/></svg><span lang="es">Descargar CV (PDF)</span><span lang="en">Download CV (PDF)</span></a>
+          <a class="btn" href="https://www.linkedin.com/in/oscarlopezruiz" target="_blank" rel="noopener"><svg><use href="#i-linkedin"/></svg>LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>© <span id="year">2026</span> Óscar López Ruiz</footer>
+  </div>
 
   <script>
   (function () {
     var root = document.documentElement;
     var store = { get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
 
-    /* Language */
     var langLabel = document.getElementById('langLabel');
-    function setLang(l) { root.dataset.lang = l; root.lang = l; langLabel.textContent = l === 'es' ? 'EN' : 'ES'; store.set('lang', l); startTyping(); }
-    var savedLang = store.get('lang') || ((navigator.language || 'es').slice(0, 2) === 'es' ? 'es' : 'en');
+    function setLang(l) { root.dataset.lang = l; root.lang = l; langLabel.textContent = l === 'es' ? 'English' : 'Español'; store.set('lang', l); }
+    setLang(store.get('lang') || ((navigator.language || 'es').slice(0, 2) === 'es' ? 'es' : 'en'));
     document.getElementById('langBtn').addEventListener('click', function () { setLang(root.dataset.lang === 'es' ? 'en' : 'es'); });
 
-    /* Theme */
     var icon = document.getElementById('themeIcon');
     function isDark() { var t = root.dataset.theme; return t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; }
-    function paintIcon() { icon.className = isDark() ? 'fa-solid fa-sun' : 'fa-solid fa-moon'; }
-    var savedTheme = store.get('theme'); if (savedTheme) root.dataset.theme = savedTheme;
-    document.getElementById('themeBtn').addEventListener('click', function () { var t = isDark() ? 'light' : 'dark'; root.dataset.theme = t; store.set('theme', t); paintIcon(); });
-    paintIcon();
-
-    /* Typing effect */
-    var words = { es: ['integración', 'automatización', 'arquitecturas de eventos', 'modernización de apps', 'éxito del cliente'], en: ['integration', 'automation', 'event-driven architecture', 'app modernization', 'client success'] };
-    var typed = document.getElementById('typed'), timer = null;
-    function startTyping() {
-      clearTimeout(timer);
-      var list = words[root.dataset.lang], wi = 0, ci = 0, del = false;
-      if (matchMedia('(prefers-reduced-motion: reduce)').matches) { typed.textContent = list[0]; return; }
-      (function tick() {
-        var w = list[wi];
-        typed.textContent = w.slice(0, ci);
-        if (!del && ci === w.length) { del = true; timer = setTimeout(tick, 1600); return; }
-        if (del && ci === 0) { del = false; wi = (wi + 1) % list.length; }
-        ci += del ? -1 : 1;
-        timer = setTimeout(tick, del ? 35 : 75);
-      })();
-    }
-    setLang(savedLang);
-
-    /* Counters */
-    function count(el) {
-      var target = +el.dataset.count, suf = el.dataset.suffix || '', t0 = null;
-      function step(ts) { if (!t0) t0 = ts; var p = Math.min((ts - t0) / 1200, 1); el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + (p === 1 ? suf : ''); if (p < 1) requestAnimationFrame(step); }
-      requestAnimationFrame(step);
-    }
-
-    /* Reveal on scroll */
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        e.target.classList.add('in');
-        e.target.querySelectorAll('[data-count]').forEach(count);
-        io.unobserve(e.target);
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
-
-    /* Active nav link */
-    var links = document.querySelectorAll('.nav-links a');
-    var so = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id); }); });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    document.querySelectorAll('section[id]').forEach(function (s) { so.observe(s); });
+    function paint() { icon.setAttribute('href', isDark() ? '#i-sun' : '#i-moon'); }
+    var saved = store.get('theme'); if (saved) root.dataset.theme = saved;
+    document.getElementById('themeBtn').addEventListener('click', function () { var t = isDark() ? 'light' : 'dark'; root.dataset.theme = t; store.set('theme', t); paint(); });
+    paint();
 
     document.getElementById('year').textContent = new Date().getFullYear();
   })();

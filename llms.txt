@@ -1,0 +1,13 @@
+# Óscar López Ruiz
+
+> Customer Success Engineering at IBM (Madrid, Spain). Specialist in integration, automation and application modernization: IBM Event Streams, IBM MQ, API Connect, WebSphere Liberty and Red Hat OpenShift.
+
+## Pages
+- [Personal website (Español)](https://olopezr.github.io/web/): experience, skills, education, certifications
+- [Personal website (English)](https://olopezr.github.io/web/en/): same content in English
+- [CV (PDF)](https://olopezr.github.io/web/assets/cv/CV_Oscar_Lopez_Ruiz.pdf)
+
+## Profiles
+- [LinkedIn](https://www.linkedin.com/in/oscarlopezruiz)
+- [GitHub](https://github.com/olopezr)
+- [Linktree](https://linktr.ee/olopezr)

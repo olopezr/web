@@ -10,7 +10,61 @@
   <meta property="og:description" content="Integración, automatización y modernización de aplicaciones con IBM y Red Hat.">
   <meta property="og:image" content="https://olopezr.github.io/web/assets/images/photo.png">
   <meta property="og:url" content="https://olopezr.github.io/web/">
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Óscar López Ruiz">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Óscar López Ruiz · Customer Success Engineering @ IBM">
+  <meta name="twitter:description" content="Integración, automatización y modernización de aplicaciones con IBM y Red Hat.">
+  <meta name="twitter:image" content="https://olopezr.github.io/web/assets/images/photo.png">
+  <meta name="author" content="Óscar López Ruiz">
+  <link rel="canonical" href="https://olopezr.github.io/web/">
+  <link rel="alternate" hreflang="es" href="https://olopezr.github.io/web/">
+  <link rel="alternate" hreflang="en" href="https://olopezr.github.io/web/en/">
+  <link rel="alternate" hreflang="x-default" href="https://olopezr.github.io/web/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://olopezr.github.io/web/#person",
+        "name": "Óscar López Ruiz",
+        "alternateName": ["Oscar Lopez Ruiz", "Oscar López Ruiz"],
+        "url": "https://olopezr.github.io/web/",
+        "image": "https://olopezr.github.io/web/assets/images/photo.png",
+        "jobTitle": "Customer Success Engineering",
+        "worksFor": { "@type": "Organization", "name": "IBM", "url": "https://www.ibm.com" },
+        "description": "Customer Success Engineering en IBM. Especialista en integración, automatización y modernización de aplicaciones: Event Streams, MQ, API Connect, WebSphere Liberty y Red Hat OpenShift.",
+        "knowsAbout": ["IBM Event Streams", "IBM MQ", "IBM API Connect", "WebSphere Liberty", "Red Hat OpenShift", "Application modernization", "Integration", "Automation"],
+        "sameAs": ["https://www.linkedin.com/in/oscarlopezruiz", "https://github.com/olopezr", "https://linktr.ee/olopezr"],
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "Universidad de Cantabria" },
+          { "@type": "EducationalOrganization", "name": "IEBS Business School" }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://olopezr.github.io/web/#website",
+        "url": "https://olopezr.github.io/web/",
+        "name": "Óscar López Ruiz",
+        "inLanguage": "es",
+        "publisher": { "@id": "https://olopezr.github.io/web/#person" }
+      },
+      {
+        "@type": "ProfilePage",
+        "url": "https://olopezr.github.io/web/",
+        "mainEntity": { "@id": "https://olopezr.github.io/web/#person" }
+      }
+    ]
+  }
+  </script>
   <link rel="icon" href="favicon.ico">
+  <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
+  <link rel="preload" as="image" href="assets/images/photo.webp">
+  <link rel="me" href="https://www.linkedin.com/in/oscarlopezruiz">
+  <link rel="me" href="https://github.com/olopezr">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -37,7 +91,6 @@
     h1, h2, h3, h4 { margin: 0; line-height: 1.25; }
     p { margin: 0; }
     svg { width: 18px; height: 18px; flex: none; }
-    html[data-lang="es"] [lang="en"]:not(html), html[data-lang="en"] [lang="es"]:not(html) { display: none !important; }
 
     .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
 
@@ -145,21 +198,21 @@
 
   <div class="wrap">
     <div class="top">
-      <button class="tbtn" id="langBtn" aria-label="Cambiar idioma / Switch language"><span id="langLabel">English</span></button>
+      <a class="tbtn" id="langBtn" href="en/" hreflang="en" lang="en" aria-label="Cambiar idioma / Switch language">English</a>
       <button class="tbtn" id="themeBtn" aria-label="Cambiar tema / Toggle theme"><svg><use id="themeIcon" href="#i-moon"/></svg></button>
     </div>
 
     <header class="hero">
-      <img src="assets/images/photo.png" alt="Óscar López Ruiz" width="112" height="112">
+      <img src="assets/images/photo.webp" alt="Óscar López Ruiz" width="112" height="112">
       <div>
         <h1>Óscar López Ruiz</h1>
         <p class="role"><strong>Customer Success Engineering</strong> · IBM</p>
         <div class="meta">
           <span><svg><use href="#i-pin"/></svg>Madrid, España</span>
-          <span><span lang="es">Integración · Automatización · Modernización de aplicaciones</span><span lang="en">Integration · Automation · Application modernization</span></span>
+          <span><span lang="es">Integración · Automatización · Modernización de aplicaciones</span></span>
         </div>
         <div class="actions">
-          <a class="btn primary" href="assets/cv/CV_Oscar_Lopez_Ruiz.pdf" download><svg><use href="#i-download"/></svg><span lang="es">Descargar CV (PDF)</span><span lang="en">Download CV (PDF)</span></a>
+          <a class="btn primary" href="assets/cv/CV_Oscar_Lopez_Ruiz.pdf" download><svg><use href="#i-download"/></svg><span lang="es">Descargar CV (PDF)</span></a>
           <a class="btn" href="https://www.linkedin.com/in/oscarlopezruiz" target="_blank" rel="noopener"><svg><use href="#i-linkedin"/></svg>LinkedIn</a>
           <a class="btn" href="https://github.com/olopezr" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg>GitHub</a>
         </div>
@@ -167,29 +220,26 @@
     </header>
 
     <section class="about">
-      <h2><span lang="es">Sobre mí</span><span lang="en">About</span></h2>
+      <h2><span lang="es">Sobre mí</span></h2>
       <div>
         <div lang="es">
           <p>Soy <strong>especialista en integración y automatización en IBM</strong>, con más de 11 años diseñando e implantando soluciones para clientes de múltiples sectores.</p>
-          <p>Trabajo con clientes y Business Partners como <strong>tecnólogo, practicante y líder de proyectos</strong>: elimino barreras técnicas, demuestro valor con demos, pruebas de concepto y workshops, y acompaño la adopción con planes de éxito medibles. Me apasionan las arquitecturas orientadas a eventos, las APIs y la modernización de aplicaciones sobre Red Hat OpenShift.</p>
+          <p>Ayudo a clientes y Business Partners de IBM a pasar de la idea a la producción con <strong>integración basada en eventos, APIs y modernización de aplicaciones sobre Red Hat OpenShift</strong>. Quito los bloqueos técnicos con demos, pruebas de concepto y workshops, y después de la venta acompaño la adopción con planes de éxito con hitos y resultados medibles.</p>
         </div>
-        <div lang="en">
-          <p>I'm an <strong>integration and automation specialist at IBM</strong> with 11+ years designing and delivering solutions for clients across many industries.</p>
-          <p>I work with clients and Business Partners as a <strong>technologist, practitioner and project leader</strong>: I remove technical blockers, prove value through demos, proofs of concept and workshops, and drive adoption with measurable success plans. I'm passionate about event-driven architecture, APIs and application modernization on Red Hat OpenShift.</p>
-        </div>
+        
       </div>
     </section>
 
     <section>
-      <h2><span lang="es">Experiencia</span><span lang="en">Experience</span></h2>
+      <h2><span lang="es">Experiencia</span></h2>
       <div>
         <div class="entry">
-          <div class="when"><span lang="es">2026 – hoy</span><span lang="en">2026 – now</span></div>
+          <div class="when"><span lang="es">2026 – hoy</span></div>
           <div>
-            <h3>Customer Success Engineering<span class="badge"><span lang="es">Actual</span><span lang="en">Current</span></span></h3>
+            <h3>Customer Success Engineering<span class="badge"><span lang="es">Actual</span></span></h3>
             <div class="org"><b>IBM</b> · Madrid</div>
             <p lang="es">Diseño soluciones viables con las capacidades actuales de producto, elimino inhibidores técnicos en las oportunidades e impulso la adopción y expansión de la tecnología IBM. Tras la venta, activo el valor: identifico sponsors, conduzco workshops de casos de uso y elaboro planes de éxito con hojas de ruta, hitos y resultados medibles.</p>
-            <p lang="en">I design viable solutions with current product capabilities, remove technical inhibitors and drive adoption and expansion of IBM technology. After the sale I drive value: finding sponsors, running use-case workshops and building success plans with roadmaps, milestones and measurable outcomes.</p>
+            
           </div>
         </div>
         <div class="entry">
@@ -198,7 +248,7 @@
             <h3>App Modernization Technical Sales</h3>
             <div class="org"><b>IBM</b> Automation · Madrid</div>
             <p lang="es">Interlocutor técnico con clientes y Business Partners: punto de vista propio como experto de marca, selección de los partners adecuados y conocimiento técnico para llevar las oportunidades al cierre.</p>
-            <p lang="en">Technical counterpart for clients and Business Partners: an opinionated brand-expert point of view, engaging the right partners and using technical insight to progress opportunities to closure.</p>
+            
             <div class="tags"><span class="tag">WebSphere Liberty</span><span class="tag">Red Hat OpenShift</span></div>
           </div>
         </div>
@@ -208,7 +258,7 @@
             <h3>Brand Technical Specialist — Automation &amp; Integration</h3>
             <div class="org"><b>IBM</b> · Madrid</div>
             <p lang="es">Venta técnica experiencial («show me, don't tell me»): propuesta de valor y ROI, análisis competitivo, casos de uso y entrega de demos, PoT, PoC, workshops y MVPs.</p>
-            <p lang="en">Experiential technical selling ("show me, don't tell me"): value proposition and ROI, competitive landscape, use cases and delivery of demos, POTs, POCs, workshops and MVPs.</p>
+            
             <div class="tags"><span class="tag">Event Streams</span><span class="tag">MQ</span><span class="tag">API Connect</span></div>
           </div>
         </div>
@@ -218,7 +268,7 @@
             <h3>Integration Technical Specialist</h3>
             <div class="org"><b>IBM</b> Hybrid Cloud · Madrid</div>
             <p lang="es">Especialista técnico en el portfolio de integración de IBM Hybrid Cloud.</p>
-            <p lang="en">Technical specialist for the IBM Hybrid Cloud integration portfolio.</p>
+            
           </div>
         </div>
         <div class="entry">
@@ -231,66 +281,62 @@
               <li>Asesoramiento proactivo, informes de dimensionamiento y buenas prácticas.</li>
               <li>Pilotos con Design Thinking sobre IBM Digital Experience y aplicaciones internas con AngularJS, Node.js y NoSQL.</li>
             </ul>
-            <ul lang="en">
-              <li>Link between the product lab and clients; requirements gathering and issue resolution.</li>
-              <li>Proactive advisory, sizing and best-practice reports.</li>
-              <li>Design Thinking pilots on IBM Digital Experience and internal apps with AngularJS, Node.js and NoSQL.</li>
-            </ul>
+            
             <div class="tags"><span class="tag">WebSphere</span><span class="tag">BPM</span><span class="tag">Db2</span><span class="tag">InfoSphere</span><span class="tag">API Connect</span><span class="tag">Cloud Pak for Integration</span></div>
           </div>
         </div>
         <div class="entry">
           <div class="when">2015</div>
           <div>
-            <h3><span lang="es">Programador web junior</span><span lang="en">Junior Web Developer</span></h3>
+            <h3><span lang="es">Programador web junior</span></h3>
             <div class="org"><b>ISBAN</b> · Santander</div>
             <p lang="es">Front-end con HTML5, JavaScript, JSP, Spring, Hibernate y Oracle DB; pruebas con ALM y Scrum.</p>
-            <p lang="en">Front-end with HTML5, JavaScript, JSP, Spring, Hibernate and Oracle DB; testing with ALM and Scrum.</p>
+            
           </div>
         </div>
         <div class="entry">
           <div class="when">2014</div>
           <div>
-            <h3><span lang="es">Desarrollador de sistemas embebidos</span><span lang="en">Embedded Systems Developer</span></h3>
+            <h3><span lang="es">Desarrollador de sistemas embebidos</span></h3>
             <div class="org"><b>Empiric Technologies</b> · Santander</div>
             <p lang="es">Prototipos electrónicos y software embebido para sensórica remota (Beca Santander de Prácticas en PYMES).</p>
-            <p lang="en">Electronic prototypes and embedded software for remote sensing (Santander SME Internship Grant).</p>
+            
           </div>
         </div>
         <div class="entry">
           <div class="when">2008 – 2014</div>
           <div>
-            <h3><span lang="es">Diseñador web freelance</span><span lang="en">Freelance Web Designer</span></h3>
+            <h3><span lang="es">Diseñador web freelance</span></h3>
             <p lang="es">Diseño, administración y adaptación de plataformas web.</p>
-            <p lang="en">Web platform design, administration and customization.</p>
+            
           </div>
         </div>
       </div>
     </section>
 
     <section>
-      <h2><span lang="es">Aptitudes</span><span lang="en">Skills</span></h2>
+      <h2><span lang="es">Aptitudes</span></h2>
       <div class="skills">
-        <div class="skill-row"><h3><span lang="es">Integración y eventos</span><span lang="en">Integration &amp; events</span></h3><p>IBM Event Streams (Kafka), IBM MQ, API Connect, Cloud Pak for Integration, Node-RED</p></div>
-        <div class="skill-row"><h3><span lang="es">Cloud y contenedores</span><span lang="en">Cloud &amp; containers</span></h3><p>Red Hat OpenShift, Kubernetes, Docker, DevOps toolchain</p></div>
-        <div class="skill-row"><h3>Middleware</h3><p>WebSphere Liberty, WebSphere Application Server, BPM, Db2, InfoSphere Information Server</p></div>
-        <div class="skill-row"><h3><span lang="es">Desarrollo</span><span lang="en">Development</span></h3><p>JavaScript, Node.js, Angular, Java / Spring, HTML5 &amp; CSS, NoSQL</p></div>
-        <div class="skill-row"><h3><span lang="es">Venta técnica</span><span lang="en">Technical sales</span></h3><p><span lang="es">Diseño de soluciones, demos, PoC/PoT, workshops, ROI, Business Partners</span><span lang="en">Solution design, demos, PoC/PoT, workshops, ROI, Business Partners</span></p></div>
-        <div class="skill-row"><h3><span lang="es">Metodologías</span><span lang="en">Methodologies</span></h3><p>Design Thinking, Agile / Scrum, Lean Startup</p></div>
+        <div class="skill-row"><h3><span lang="es">Integración y eventos</span></h3><p>IBM Event Streams (Kafka), IBM MQ, API Connect, Cloud Pak for Integration, Node-RED</p></div>
+        <div class="skill-row"><h3><span lang="es">Cloud y contenedores</span></h3><p>Red Hat OpenShift, Kubernetes, Docker, DevOps toolchain</p></div>
+        <div class="skill-row"><h3>Middleware</h3><p>WebSphere Liberty, WebSphere Application Server, BPM, Db2, InfoSphere Information Server, Hyperledger Fabric</p></div>
+        <div class="skill-row"><h3><span lang="es">Desarrollo</span></h3><p>JavaScript, Node.js, Angular, Java / Spring, Maven, Hibernate, HTML5 &amp; CSS, SQL, NoSQL</p></div>
+        <div class="skill-row"><h3><span lang="es">Venta técnica</span></h3><p><span lang="es">Diseño de soluciones, demos, PoC/PoT, workshops, ROI, Business Partners</span></p></div>
+        <div class="skill-row"><h3><span lang="es">Metodologías</span></h3><p>Design Thinking, Agile / Scrum, Lean Startup</p></div>
       </div>
     </section>
 
     <section>
-      <h2><span lang="es">Formación</span><span lang="en">Education</span></h2>
+      <h2><span lang="es">Formación</span></h2>
       <ul class="list">
         <li><span>Máster en Digital Business &amp; Lean Startup — IEBS</span><span class="sub">2018 – 2019</span></li>
-        <li><span><span lang="es">Grado en Ingeniería de Tecnologías de Telecomunicación</span><span lang="en">BSc Telecommunication Technologies Engineering</span> — Universidad de Cantabria</span><span class="sub">2014 – 2016</span></li>
-        <li><span><span lang="es">Ingeniero Técnico de Telecomunicación, Sistemas Electrónicos</span><span lang="en">Technical Telecommunications Engineer, Electronic Systems</span> — Universidad de Cantabria</span><span class="sub">2008 – 2014</span></li>
+        <li><span><span lang="es">Grado en Ingeniería de Tecnologías de Telecomunicación, Mención en Sistemas Electrónicos</span> — Universidad de Cantabria</span><span class="sub">2014</span></li>
+        <li><span><span lang="es">Ingeniero Técnico de Telecomunicación, Sistemas Electrónicos</span> — Universidad de Cantabria</span><span class="sub">2008</span></li>
       </ul>
     </section>
 
     <section>
-      <h2><span lang="es">Certificaciones</span><span lang="en">Certifications</span></h2>
+      <h2><span lang="es">Certificaciones</span></h2>
       <ul class="list">
         <li><span>Red Hat OpenShift Administration III: Scaling Deployments in the Enterprise (DO380)</span><span class="sub">Red Hat</span></li>
         <li><span>Messaging Technical Sales — Advanced</span><span class="sub">IBM</span></li>
@@ -301,41 +347,41 @@
     </section>
 
     <section>
-      <h2><span lang="es">Idiomas</span><span lang="en">Languages</span></h2>
+      <h2><span lang="es">Idiomas</span></h2>
       <div class="langs">
-        <div class="lang"><h3><span lang="es">Español</span><span lang="en">Spanish</span></h3><p><span lang="es">Lengua materna</span><span lang="en">Native</span></p></div>
-        <div class="lang"><h3><span lang="es">Inglés</span><span lang="en">English</span></h3><p><span class="lvl">C1</span> · <span lang="es">profesional completo</span><span lang="en">full professional</span></p></div>
-        <div class="lang"><h3><span lang="es">Francés</span><span lang="en">French</span></h3><p><span class="lvl">A2</span> · <span lang="es">básico</span><span lang="en">elementary</span></p></div>
+        <div class="lang"><h3><span lang="es">Español</span></h3><p><span lang="es">Lengua materna</span></p></div>
+        <div class="lang"><h3><span lang="es">Inglés</span></h3><p><span class="lvl">C1</span> · <span lang="es">profesional completo</span></p></div>
+        <div class="lang"><h3><span lang="es">Francés</span></h3><p><span class="lvl">A2</span> · <span lang="es">básico</span></p></div>
       </div>
     </section>
 
     <section>
-      <h2><span lang="es">Proyectos</span><span lang="en">Projects</span></h2>
+      <h2><span lang="es">Proyectos</span></h2>
       <div class="projects">
         <div>
-          <h3><span lang="es">Monitorización ambiental con energía solar</span><span lang="en">Solar-powered environmental monitoring</span></h3>
+          <h3><span lang="es">Monitorización ambiental con energía solar</span></h3>
           <p lang="es">Estación autosuficiente con sensores RF y Raspberry Pi que recoge, almacena y visualiza datos ambientales en tiempo real.</p>
-          <p lang="en">Self-sufficient station with RF sensors and a Raspberry Pi that collects, stores and visualizes environmental data in real time.</p>
+          
         </div>
         <div>
-          <h3><span lang="es">Práctica didáctica: kit aerogenerador</span><span lang="en">Lab exercise: wind turbine kit</span></h3>
+          <h3><span lang="es">Práctica didáctica: kit aerogenerador</span></h3>
           <p lang="es">Práctica para caracterizar un aerogenerador en una asignatura de energías renovables de la Universidad de Cantabria.</p>
-          <p lang="en">Lab exercise to characterize a wind turbine for a renewable energy course at the University of Cantabria.</p>
+          
         </div>
         <div>
-          <h3><span lang="es">Programas de emprendimiento</span><span lang="en">Entrepreneurship programmes</span></h3>
+          <h3><span lang="es">Programas de emprendimiento</span></h3>
           <p lang="es">Yuzz «Jóvenes con Ideas» y e2 «Estudiante × Emprendedor» en CISE, Santander (2014).</p>
-          <p lang="en">Yuzz "Young people with ideas" and e2 "Student × Entrepreneur" at CISE, Santander (2014).</p>
+          
         </div>
       </div>
     </section>
 
     <section class="contact" style="border-bottom:0">
-      <h2><span lang="es">Contacto</span><span lang="en">Contact</span></h2>
+      <h2><span lang="es">Contacto</span></h2>
       <div>
-        <p><span lang="es">¿Integración, eventos, APIs o modernización de aplicaciones? Escríbeme por LinkedIn o encuentra todos mis enlaces en</span><span lang="en">Integration, events, APIs or app modernization? Reach me on LinkedIn or find all my links at</span> <a href="https://linktr.ee/olopezr" target="_blank" rel="noopener">linktr.ee/olopezr</a>.</p>
+        <p><span lang="es">¿Integración, eventos, APIs o modernización de aplicaciones? Escríbeme por LinkedIn o encuentra todos mis enlaces en</span> <a href="https://linktr.ee/olopezr" target="_blank" rel="noopener">linktr.ee/olopezr</a>.</p>
         <div class="actions">
-          <a class="btn primary" href="assets/cv/CV_Oscar_Lopez_Ruiz.pdf" download><svg><use href="#i-download"/></svg><span lang="es">Descargar CV (PDF)</span><span lang="en">Download CV (PDF)</span></a>
+          <a class="btn primary" href="assets/cv/CV_Oscar_Lopez_Ruiz.pdf" download><svg><use href="#i-download"/></svg><span lang="es">Descargar CV (PDF)</span></a>
           <a class="btn" href="https://www.linkedin.com/in/oscarlopezruiz" target="_blank" rel="noopener"><svg><use href="#i-linkedin"/></svg>LinkedIn</a>
         </div>
       </div>
@@ -349,10 +395,6 @@
     var root = document.documentElement;
     var store = { get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
 
-    var langLabel = document.getElementById('langLabel');
-    function setLang(l) { root.dataset.lang = l; root.lang = l; langLabel.textContent = l === 'es' ? 'English' : 'Español'; store.set('lang', l); }
-    setLang(store.get('lang') || ((navigator.language || 'es').slice(0, 2) === 'es' ? 'es' : 'en'));
-    document.getElementById('langBtn').addEventListener('click', function () { setLang(root.dataset.lang === 'es' ? 'en' : 'es'); });
 
     var icon = document.getElementById('themeIcon');
     function isDark() { var t = root.dataset.theme; return t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; }
